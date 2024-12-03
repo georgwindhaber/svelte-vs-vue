@@ -8,7 +8,9 @@
 
 	let newTodoText = $state('');
 
-	const newTodo = () => {
+	const newTodo = (event: SubmitEvent) => {
+		event.preventDefault();
+
 		todos.push({
 			done: false,
 			text: newTodoText
