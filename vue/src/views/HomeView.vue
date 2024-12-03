@@ -1,15 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+let id = 1
+
 const todos = ref([
   {
-    id: 1,
+    id: 0,
     done: false,
     text: 'add more todos',
   },
 ])
 
-todos.value[0].done = !todos.value[0].done
+const newTodoText = ref('')
+
+const addTodo = () => {
+  todos.value.push({ id: id++, done: false, text: newTodoText.value })
+  newTodoText.value = ''
+}
 </script>
 
 <template>
@@ -17,5 +24,9 @@ todos.value[0].done = !todos.value[0].done
     <ul>
       <li v-for="todo in todos" :key="todo.id">{{ todo.done }} - {{ todo.text }}</li>
     </ul>
+
+    <form @submit.prevent="addTodo">
+      <input v-model="newTodoText" />
+    </form>
   </main>
 </template>

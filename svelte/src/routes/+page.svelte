@@ -1,16 +1,33 @@
 <script lang="ts">
-let todos = $state([
-	{
-		done: false,
-		text: 'add more todos'
-	}
-]);
+	const todos = $state([
+		{
+			done: false,
+			text: 'add more todos'
+		}
+	]);
 
-todos[0].done = !todos[0].done;
+	let newTodoText = $state('');
+
+	const newTodo = () => {
+		todos.push({
+			done: false,
+			text: newTodoText
+		});
+
+		newTodoText = '';
+	};
 </script>
 
-<ul>
-	{#each todos as todo}
-		{todo.done} - {todo.text}
-	{/each}
-</ul>
+<main>
+	<ul>
+		{#each todos as todo}
+			<li>
+				{todo.done} - {todo.text}
+			</li>
+		{/each}
+	</ul>
+
+	<form onsubmit={newTodo}>
+		<input bind:value={newTodoText} />
+	</form>
+</main>
