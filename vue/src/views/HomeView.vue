@@ -15,7 +15,7 @@ todos.value[0].done = !todos.value[0].done
 <template>
   <main>
     <ul>
-      <li v-for="todo in todos" :key="todo.id">{{ todo.done }} {{ todo.text }}</li>
+      <li v-for="todo in todos" :key="todo.id">{{ todo.done }} - {{ todo.text }}</li>
     </ul>
   </main>
 </template>
