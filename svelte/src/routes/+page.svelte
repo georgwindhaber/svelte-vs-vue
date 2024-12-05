@@ -3,7 +3,7 @@
 	let newTodoText = $state('');
 
 	const fetchTodos = async () => {
-		todos = await (await fetch('http://127.0.0.1:3000/todos/vue')).json();
+		todos = await (await fetch('http://127.0.0.1:3000/todos/svelte')).json();
 	};
 
 	const newTodo = () => {
@@ -15,6 +15,10 @@
 		});
 
 		newTodoText = '';
+		fetch('http://localhost:3000/todos/svelte', {
+			method: 'PUT',
+			body: JSON.stringify(todos)
+		});
 	};
 </script>
 

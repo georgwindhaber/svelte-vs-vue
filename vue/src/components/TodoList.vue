@@ -1,5 +1,5 @@
 <script async setup>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
 let id = 1
 const todos = ref(await (await fetch('http://127.0.0.1:3000/todos/vue')).json())
