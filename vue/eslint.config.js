@@ -13,6 +13,17 @@ export default [
     ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
   },
 
+  {
+    'vue/block-lang': [
+      'error',
+      {
+        script: {
+          lang: 'js',
+        },
+      },
+    ],
+  },
+
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),
   skipFormatting,
