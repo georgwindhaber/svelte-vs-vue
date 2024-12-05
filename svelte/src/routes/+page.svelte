@@ -24,7 +24,8 @@
 	<ul>
 		{#each todos as todo}
 			<li>
-				{todo.done} - {todo.text}
+				<input type="checkbox" bind:checked={todo.done} />
+				{todo.text}
 			</li>
 		{/each}
 	</ul>

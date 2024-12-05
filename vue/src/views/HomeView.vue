@@ -22,7 +22,10 @@ const addTodo = () => {
 <template>
   <main>
     <ul>
-      <li v-for="todo in todos" :key="todo.id">{{ todo.done }} - {{ todo.text }}</li>
+      <li v-for="todo in todos" :key="todo.id">
+        <input type="checkbox" v-model="todo.done" />
+        {{ todo.text }}
+      </li>
     </ul>
 
     <form @submit.prevent="addTodo">
